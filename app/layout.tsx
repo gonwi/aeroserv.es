@@ -4,6 +4,7 @@ import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
 import { Providers } from '@/components/providers';
 import { siteUrl } from '@/lib/seo';
+import { getThemeScript } from '@/lib/theme';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -26,6 +27,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: getThemeScript() }} />
+      </head>
       <body className={`${GeistSans.variable} ${GeistMono.variable}`}>
         <Providers>{children}</Providers>
       </body>

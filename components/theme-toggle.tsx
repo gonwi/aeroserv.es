@@ -2,10 +2,10 @@
 
 import { useEffect, useState } from 'react';
 import { Laptop, Moon, Sun } from 'lucide-react';
-import { useTheme } from 'next-themes';
+import { useSiteTheme } from './providers';
 
 export function ThemeToggle() {
-  const { theme, resolvedTheme, setTheme } = useTheme();
+  const { theme, resolvedTheme, setTheme } = useSiteTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
