@@ -4,7 +4,7 @@ import type { Lang } from '@/lib/i18n';
 export const siteUrl = 'https://aeroserv.es';
 const siteName = 'Aeroserv';
 
-type PageKey = 'home' | 'services' | 'about' | 'contact' | 'privacy' | 'legal' | 'cookies';
+export type PageKey = 'home' | 'services' | 'about' | 'contact' | 'privacy' | 'legal' | 'cookies';
 
 const pageSeo: Record<PageKey, Record<Lang, { title: string; description: string; path: string }>> = {
   home: {
@@ -93,9 +93,20 @@ const pageSeo: Record<PageKey, Record<Lang, { title: string; description: string
   },
 };
 
+export function getPageSeoEntry(lang: Lang, page: PageKey) {
+  return pageSeo[page][lang];
+}
+
+export function getOgImageUrl(lang: Lang, page: PageKey) {
+  const current = getPageSeoEntry(lang, page);
+  const routePrefix = `${siteUrl}/${lang}${current.path}`;
+  return `${routePrefix}${current.path ? '/' : ''}opengraph-image`;
+}
+
 export function getPageMetadata(lang: Lang, page: PageKey): Metadata {
-  const current = pageSeo[page][lang];
+  const current = getPageSeoEntry(lang, page);
   const canonical = `${siteUrl}/${lang}${current.path}`;
+  const ogImage = getOgImageUrl(lang, page);
 
   return {
     title: `${current.title} | ${siteName}`,
@@ -117,18 +128,18 @@ export function getPageMetadata(lang: Lang, page: PageKey): Metadata {
       type: 'website',
       images: [
         {
-          url: `${siteUrl}/favicon-aeroserv.png`,
-          width: 512,
-          height: 512,
-          alt: 'Aeroserv',
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: `${current.title} | ${siteName}`,
         },
       ],
     },
     twitter: {
-      card: 'summary',
+      card: 'summary_large_image',
       title: `${current.title} | ${siteName}`,
       description: current.description,
-      images: [`${siteUrl}/favicon-aeroserv.png`],
+      images: [ogImage],
     },
   };
 }

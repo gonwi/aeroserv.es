@@ -183,6 +183,11 @@ li,
   border-radius: 18px;
 }
 
+.media-frame__image--show-full {
+  object-fit: contain;
+  background: var(--surface);
+}
+
 .media-frame--art {
   padding: 14px;
 }

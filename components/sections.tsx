@@ -289,7 +289,7 @@ export function Facilities({ lang }: { lang: Lang }) {
             alt={lang === 'es' ? 'Soluciones Aeroserv' : 'Aeroserv solutions'}
             width={658}
             height={530}
-            className="media-frame__image"
+            className="media-frame__image media-frame__image--show-full"
           />
         </div>
       </div>
