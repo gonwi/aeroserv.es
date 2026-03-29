@@ -22,9 +22,9 @@
   --foreground: #edf2f7;
   --text: #edf2f7;
   --heading: #f8fbff;
-  --card: rgba(14, 24, 38, 0.88);
-  --border: rgba(255,255,255,0.12);
-  --border-soft: rgba(255,255,255,0.08);
+  --card: rgba(11, 19, 31, 0.94);
+  --border: rgba(255,255,255,0.06);
+  --border-soft: rgba(255,255,255,0.05);
   --muted: #a5b4c4;
   --accent: #d7e6f5;
   --accent-strong: #ffffff;
@@ -97,6 +97,7 @@ li,
   border-radius: 24px;
   backdrop-filter: blur(10px);
   box-shadow: var(--shadow);
+  background-clip: padding-box;
 }
 
 .page-hero {
@@ -179,6 +180,17 @@ li,
   height: 100%;
   min-height: 320px;
   object-fit: cover;
+  border-radius: 18px;
+}
+
+.media-frame--art {
+  padding: 14px;
+}
+
+.media-frame__art {
+  display: block;
+  width: 100%;
+  height: auto;
   border-radius: 18px;
 }
 
@@ -712,6 +724,11 @@ html.dark .theme-logo--dark {
   transform: translateY(-2px);
 }
 
+.dark .card,
+.dark .client-card {
+  box-shadow: 0 18px 44px rgba(0,0,0,0.18);
+}
+
 .story-shell,
 .quality-shell,
 .contact-cta-card {
@@ -1013,6 +1030,13 @@ html.dark .theme-logo--dark {
   .hero-title {
     max-width: 12ch;
     font-size: clamp(2.5rem, 11vw, 4rem);
+  }
+
+  .media-frame__image--contain-mobile {
+    height: auto;
+    min-height: 0;
+    object-fit: contain;
+    background: var(--surface);
   }
 
   .button-primary,
