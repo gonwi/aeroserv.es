@@ -2,7 +2,6 @@ import Image from 'next/image';
 import { ArrowRight, CheckCircle2, Factory, MapPin, ShieldCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { clients, company, getDictionary, stats, type Lang } from '@/lib/i18n';
-import { GeneratedSectionArt } from './generated-section-art';
 import { IsoModalGallery } from './iso-modal-gallery';
 
 function getHomeContent(lang: Lang) {
@@ -211,18 +210,10 @@ export function ServicesPreview({ lang }: { lang: Lang }) {
   return (
     <section className="section" id="services">
       <div className="container">
-        <div className="section-two-col" style={{ marginBottom: 22, alignItems: 'center' }}>
-          <div>
-            <div className="eyebrow">{content.heroEyebrow}</div>
-            <h2 className="section-title" style={{ fontSize: 'clamp(2rem, 3vw, 3rem)', marginBottom: 8 }}>{content.servicesTitle}</h2>
-            <p className="section-copy" style={{ maxWidth: 860 }}>{content.servicesSubtitle}</p>
-          </div>
-          <div className="card media-frame media-frame--art">
-            <GeneratedSectionArt
-              variant="technical"
-              alt={lang === 'es' ? 'Visual técnico de Aeroserv' : 'Aeroserv technical visual'}
-            />
-          </div>
+        <div style={{ marginBottom: 22 }}>
+          <div className="eyebrow">{content.heroEyebrow}</div>
+          <h2 className="section-title" style={{ fontSize: 'clamp(2rem, 3vw, 3rem)', marginBottom: 8 }}>{content.servicesTitle}</h2>
+          <p className="section-copy" style={{ maxWidth: 860 }}>{content.servicesSubtitle}</p>
         </div>
         <div className="grid-auto">
           {content.services.map((service) => (
@@ -381,13 +372,7 @@ export function QualitySection({ lang }: { lang: Lang }) {
           <IsoModalGallery />
         </div>
 
-        <div className="card section-block stack-lg">
-          <div className="card media-frame media-frame--art">
-            <GeneratedSectionArt
-              variant="signal"
-              alt={lang === 'es' ? 'Visual de calidad y certificación' : 'Quality and certification visual'}
-            />
-          </div>
+        <div className="card section-block">
           <div className="grid-auto">
             {[
               'EN9100 / ISO 9001',

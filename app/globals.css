@@ -315,6 +315,7 @@ li,
 }
 
 .hero-shell {
+  background-color: transparent;
   padding: 40px;
   min-height: 620px;
   display: grid;
@@ -326,11 +327,13 @@ li,
     url('/home/home-hero.jpg');
   background-size: cover;
   background-position: center right;
-  border-color: rgba(255,255,255,0.08);
+  border: 0;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06), var(--shadow);
 }
 
 .dark .hero-shell {
-  border-color: rgba(255,255,255,0.08);
+  border: 0;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04), 0 20px 60px rgba(0,0,0,0.22);
 }
 
 .hero-content {
@@ -432,22 +435,30 @@ li,
   position: relative;
   overflow: hidden;
   border-radius: 28px;
-  border: 1px solid rgba(255,255,255,0.34);
+  background-color: transparent;
+  border: 0;
   background:
     linear-gradient(90deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.92) 42%, rgba(255,255,255,0.74) 100%),
     url('/home/home-hero.jpg');
   background-size: cover;
   background-position: center right;
-  box-shadow: 0 22px 50px rgba(15, 23, 42, 0.12);
+  box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.08), 0 22px 50px rgba(15, 23, 42, 0.12);
 }
 
 .dark .site-header__frame {
-  border-color: rgba(255,255,255,0.08);
+  border: 0;
   background:
     linear-gradient(90deg, rgba(7,16,27,0.96) 0%, rgba(7,16,27,0.9) 42%, rgba(7,16,27,0.6) 100%),
     url('/home/home-hero.jpg');
   background-size: cover;
   background-position: center right;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04), 0 22px 50px rgba(0,0,0,0.22);
+}
+
+.dark .site-header__frame::after {
+  background:
+    linear-gradient(90deg, rgba(18,63,115,0.12), transparent 38%),
+    linear-gradient(180deg, rgba(255,255,255,0.02), transparent 55%);
 }
 
 .site-header__frame::after {
@@ -484,8 +495,8 @@ li,
 }
 
 .dark .site-nav {
-  background: rgba(255,255,255,0.04);
-  border-color: rgba(255,255,255,0.08);
+  background: rgba(6, 15, 24, 0.72);
+  border-color: rgba(255,255,255,0.04);
 }
 
 .site-nav__link {
@@ -508,6 +519,16 @@ li,
 .site-nav__link--active {
   background: var(--surface);
   box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+}
+
+.dark .site-nav__link {
+  color: rgba(233, 241, 248, 0.74);
+}
+
+.dark .site-nav__link--active {
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+  box-shadow: none;
 }
 
 .site-nav__link:hover {
@@ -538,6 +559,12 @@ li,
   align-items: center;
   justify-content: center;
   cursor: pointer;
+}
+
+.dark .mobile-nav-toggle {
+  border-color: rgba(255,255,255,0.04);
+  background: rgba(6, 15, 24, 0.78);
+  box-shadow: none;
 }
 
 .mobile-nav {
@@ -594,8 +621,15 @@ li,
 }
 
 .dark .mobile-nav__link {
-  background: rgba(255,255,255,0.04);
-  border-color: rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.03);
+  border-color: rgba(255,255,255,0.04);
+  color: rgba(233, 241, 248, 0.82);
+}
+
+.dark .mobile-nav__link--active {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(255,255,255,0.04);
+  color: #fff;
 }
 
 .mobile-nav__tools {
@@ -666,6 +700,21 @@ html.dark .theme-logo--dark {
   box-shadow: 0 2px 10px rgba(15, 23, 42, 0.08);
 }
 
+.dark .lang-switcher {
+  border-color: rgba(255,255,255,0.04);
+  background: rgba(6, 15, 24, 0.78);
+}
+
+.dark .lang-switcher__item {
+  color: rgba(233, 241, 248, 0.72);
+}
+
+.dark .lang-switcher__item.is-active {
+  background: rgba(255,255,255,0.07);
+  color: #fff;
+  box-shadow: none;
+}
+
 .theme-toggle {
   position: relative;
   width: 58px;
@@ -675,6 +724,11 @@ html.dark .theme-logo--dark {
   background: var(--surface-muted);
   cursor: pointer;
   padding: 0;
+}
+
+.dark .theme-toggle {
+  border-color: rgba(255,255,255,0.04);
+  background: rgba(6, 15, 24, 0.78);
 }
 
 .theme-toggle__thumb {
@@ -691,12 +745,18 @@ html.dark .theme-logo--dark {
 
 .dark .theme-toggle__thumb {
   transform: translateX(24px);
+  background: rgba(255,255,255,0.1);
+  box-shadow: none;
 }
 
 .theme-toggle__icon {
   position: absolute;
   top: 8px;
   color: var(--muted);
+}
+
+.dark .theme-toggle__icon {
+  color: rgba(233, 241, 248, 0.72);
 }
 
 .theme-toggle__icon--sun { left: 8px; }
@@ -727,6 +787,19 @@ html.dark .theme-logo--dark {
 .dark .card,
 .dark .client-card {
   box-shadow: 0 18px 44px rgba(0,0,0,0.18);
+}
+
+.dark .surface-panel,
+.dark .kicker-item,
+.dark .client-logo-frame,
+.dark .media-frame--art,
+.dark .hero-meta-item,
+.dark .hero-stat-card {
+  border-color: rgba(255,255,255,0.04);
+}
+
+.dark .client-logo-frame {
+  box-shadow: none;
 }
 
 .story-shell,
