@@ -1,19 +1,13 @@
+import { LegalPage } from '@/components/legal-page';
 import { type Lang } from '@/lib/i18n';
+import { getPageMetadata } from '@/lib/seo';
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }) {
+  const { lang } = await params;
+  return getPageMetadata(lang, 'privacy');
+}
 
 export default async function PrivacyPage({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params;
-  const title = lang === 'es' ? 'Política de privacidad' : 'Privacy policy';
-  const text = lang === 'es'
-    ? 'Sustituye este contenido por la versión jurídica definitiva de la política de privacidad antes de publicar.'
-    : 'Replace this content with the final legal privacy policy before publishing.';
-
-  return (
-    <section className="section">
-      <div className="container card" style={{ padding: 32 }}>
-        <div className="eyebrow">AEROSERV</div>
-        <h1 style={{ fontSize: 'clamp(2rem, 4vw, 3.4rem)', margin: '14px 0 10px' }}>{title}</h1>
-        <p style={{ color: '#aebdd0', lineHeight: 1.8 }}>{text}</p>
-      </div>
-    </section>
-  );
+  return <LegalPage page="privacy" lang={lang} />;
 }

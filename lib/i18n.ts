@@ -14,10 +14,10 @@ export const dictionary = {
       contact: 'Contacto',
     },
     hero: {
-      eyebrow: 'Empresa multiservicio',
-      title: 'Servicios aeronáuticos y logísticos de alta eficiencia.',
+      eyebrow: 'Servicios aeronáuticos y logística industrial',
+      title: 'Soporte industrial y logístico para operaciones aeronáuticas exigentes.',
       description:
-        'Contamos con los procedimientos más adecuados para cumplir las expectativas de nuestros clientes, con soporte in situ y en nuestras propias instalaciones.',
+        'Integramos soporte de montaje, mantenimiento, utillaje, logística y transporte especial con foco en calidad, trazabilidad y capacidad de respuesta.',
       primary: 'Contactar',
       secondary: 'Ver servicios',
     },
@@ -41,7 +41,7 @@ export const dictionary = {
       qualityText:
         'Aeroserv está certificado en EN9100 e ISO 9001, además de disponer de aprobaciones de procesos especiales vinculadas a montaje, sellado y control de calidad.',
       contactTitle: '¿Quieres contactarnos?',
-      contactText: 'Estamos disponibles para consultas comerciales, industriales y técnicas.',
+      contactText: 'Atendemos consultas comerciales, técnicas e industriales relacionadas con fabricación, soporte de planta y logística aeronáutica.',
     },
     services: {
       title: 'Servicios',
@@ -55,8 +55,8 @@ export const dictionary = {
     },
     contact: {
       title: 'Contacto',
-      intro: 'Para cualquier consulta, puedes contactarnos a través de nuestros teléfonos o por correo electrónico.',
-      formNote: 'Formulario no conectado. Sustituye este bloque por tu integración preferida.',
+      intro: 'Si necesitas soporte industrial, logístico o aeronáutico, nuestro equipo puede estudiar el alcance y responder con la solución adecuada.',
+      formNote: 'Completa el formulario y tu solicitud será remitida por correo electrónico al equipo correspondiente.',
     },
     footer: {
       privacy: 'Política de privacidad',
@@ -74,10 +74,10 @@ export const dictionary = {
       contact: 'Contact',
     },
     hero: {
-      eyebrow: 'Multi-service company',
-      title: 'High-efficiency aeronautical and logistics services.',
+      eyebrow: 'Aeronautical services and industrial logistics',
+      title: 'Industrial and logistics support for demanding aeronautical operations.',
       description:
-        'We operate with the right procedures to meet customer expectations, both on-site and from our own facilities.',
+        'We combine assembly support, maintenance, tooling, logistics and special transport with a strong focus on quality, traceability and responsiveness.',
       primary: 'Contact us',
       secondary: 'View services',
     },
@@ -101,7 +101,7 @@ export const dictionary = {
       qualityText:
         'Aeroserv is certified to EN9100 and ISO 9001 and also holds approvals for special processes related to assembly, sealing and quality control.',
       contactTitle: 'Would you like to contact us?',
-      contactText: 'We are available for commercial, industrial and technical enquiries.',
+      contactText: 'We handle commercial, technical and industrial enquiries related to manufacturing support, plant assistance and aeronautical logistics.',
     },
     services: {
       title: 'Services',
@@ -115,8 +115,8 @@ export const dictionary = {
     },
     contact: {
       title: 'Contact',
-      intro: 'For any enquiry, you can contact us by phone or email.',
-      formNote: 'Form not connected. Replace this block with your preferred integration.',
+      intro: 'If you need industrial, logistics or aeronautical support, our team can review the scope and respond with the right solution.',
+      formNote: 'Complete the form and your enquiry will be forwarded by email to the relevant team.',
     },
     footer: {
       privacy: 'Privacy policy',
@@ -221,8 +221,11 @@ export const stats = {
 };
 
 export const clients = [
-  { name: 'Airbus', src: '/client-logos/airbus.svg', width: 399, height: 74 },
-  { name: 'Aciturri', src: '/client-logos/aciturri.png', width: 250, height: 60 },
-  { name: 'Aernnova', src: '/client-logos/aernnova.png', width: 294, height: 33 },
-  { name: 'Aritex', src: '/client-logos/aritex.svg', width: 444, height: 134 },
+  { name: 'Airbus', src: '/client-logos/airbus.svg', width: 399, height: 74, href: 'https://www.airbus.com/en' },
+  { name: 'Airbus DS', src: '/client-logos/airbus-ds.svg', width: 254, height: 58, href: 'https://www.airbus.com/en/products-services/defence' },
+  { name: 'Alestis', fallback: 'ALESTIS', href: 'https://www.alestis.aero/' },
+  { name: 'Aciturri', src: '/client-logos/aciturri.png', width: 250, height: 60, href: 'https://www.aciturri.com/en/' },
+  { name: 'Aernnova', src: '/client-logos/aernnova.png', width: 392, height: 45, href: 'https://www.aernnova.com/' },
+  { name: 'Aritex', src: '/client-logos/aritex.svg', width: 444, height: 134, href: 'https://www.aritex.io/' },
+  { name: 'Latecoere', src: '/client-logos/latecoere.webp', width: 561, height: 90, href: 'https://www.latecoere.aero/' },
 ] as const;
