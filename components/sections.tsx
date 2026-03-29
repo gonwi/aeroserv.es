@@ -218,7 +218,7 @@ export function ServicesPreview({ lang }: { lang: Lang }) {
         <div className="grid-auto">
           {content.services.map((service) => (
             <article key={service.title} className="card" style={{ padding: 24 }}>
-              <div style={{ width: 64, height: 64, borderRadius: 18, display: 'grid', placeItems: 'center', background: 'var(--surface-muted)', border: '1px solid var(--border-soft)' }}>
+              <div style={{ width: 64, height: 64, borderRadius: 18, display: 'grid', placeItems: 'center', background: '#ffffff', border: '1px solid rgba(15, 23, 42, 0.08)', boxShadow: 'inset 0 0 0 1px rgba(15, 23, 42, 0.03)' }}>
                 <Image src={service.icon} alt="" width={36} height={36} style={{ width: 36, height: 36, objectFit: 'contain' }} />
               </div>
               <h3 style={{ fontSize: 22, margin: '18px 0 10px' }}>{service.title}</h3>
