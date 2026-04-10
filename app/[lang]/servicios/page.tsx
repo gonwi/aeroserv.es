@@ -162,9 +162,9 @@ export default async function ServicesPage({ params }: { params: Promise<{ lang:
           <h2 className="section-title" style={{ marginBottom: 8 }}>{content.servicesTitle}</h2>
           <div className="grid-auto" style={{ marginTop: 18 }}>
             {content.services.map((service, index) => (
-              <article key={service.title} className={`surface-panel surface-panel--plain ${index % 3 === 0 ? 'service-card--featured' : ''}`} style={{ minHeight: 320 }}>
-                <div style={{ width: 72, height: 72, borderRadius: 20, display: 'grid', placeItems: 'center', background: 'var(--surface-muted)', border: '1px solid var(--border-soft)', marginBottom: 18 }}>
-                  <Image src={service.icon} alt="" width={40} height={40} style={{ width: 40, height: 40, objectFit: 'contain' }} />
+              <article key={service.title} className={`surface-panel surface-panel--plain services-page__card ${index % 3 === 0 ? 'service-card--featured' : ''}`}>
+                <div className="service-panel__icon services-page__icon">
+                  <Image src={service.icon} alt="" width={40} height={40} className="services-page__icon-image" />
                 </div>
                 <h3 style={{ fontSize: 24, margin: '0 0 10px' }}>{service.title}</h3>
                 <p style={{ color: 'var(--muted)', lineHeight: 1.8, marginBottom: 0 }}>{service.description}</p>
