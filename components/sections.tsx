@@ -168,13 +168,30 @@ export function Hero({ lang }: { lang: Lang }) {
     <section className="section">
       <div className="container hero-container">
         <div className="card hero-shell">
-          <div className="hero-content">
-            <div className="eyebrow hero-eyebrow">{content.heroEyebrow}</div>
-            <h1 className="hero-title">{content.heroTitle}</h1>
-            <p className="hero-lead">{content.heroDescription}</p>
-            <div className="hero-actions">
-              <Button href={`/${lang}/contacto`}>{t.hero.primary}</Button>
-              <Button href={`/${lang}/servicios`} variant="secondary">{t.hero.secondary}</Button>
+          <div className="hero-grid">
+            <div className="hero-content">
+              <div className="eyebrow hero-eyebrow">{content.heroEyebrow}</div>
+              <h1 className="hero-title">{content.heroTitle}</h1>
+              <p className="hero-lead">{content.heroDescription}</p>
+              <div className="hero-actions">
+                <Button href={`/${lang}/contacto`}>{t.hero.primary}</Button>
+                <Button href={`/${lang}/servicios`} variant="secondary">{t.hero.secondary}</Button>
+              </div>
+            </div>
+            <div className="hero-sideband">
+              <div className="hero-sideband__panel">
+                <div className="hero-sideband__label">{content.capacityTitle}</div>
+                <div className="hero-sideband__value">{content.certifications}</div>
+              </div>
+              <div className="hero-sideband__beam" />
+              <div className="hero-sideband__specs">
+                {stats[lang].slice(0, 2).map((stat) => (
+                  <div key={stat.label} className="hero-sideband__spec">
+                    <span>{stat.label}</span>
+                    <strong>{stat.value}</strong>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -210,19 +227,22 @@ export function ServicesPreview({ lang }: { lang: Lang }) {
   return (
     <section className="section" id="services">
       <div className="container">
-        <div style={{ marginBottom: 22 }}>
+        <div className="section-intro section-intro--services">
           <div className="eyebrow">{content.heroEyebrow}</div>
-          <h2 className="section-title" style={{ fontSize: 'clamp(2rem, 3vw, 3rem)', marginBottom: 8 }}>{content.servicesTitle}</h2>
-          <p className="section-copy" style={{ maxWidth: 860 }}>{content.servicesSubtitle}</p>
+          <h2 className="section-title section-title--wide">{content.servicesTitle}</h2>
+          <p className="section-copy section-copy--wide">{content.servicesSubtitle}</p>
         </div>
-        <div className="grid-auto">
-          {content.services.map((service) => (
-            <article key={service.title} className="card" style={{ padding: 24 }}>
-              <div style={{ width: 64, height: 64, borderRadius: 18, display: 'grid', placeItems: 'center', background: '#ffffff', border: '1px solid rgba(15, 23, 42, 0.08)', boxShadow: 'inset 0 0 0 1px rgba(15, 23, 42, 0.03)' }}>
-                <Image src={service.icon} alt="" width={36} height={36} style={{ width: 36, height: 36, objectFit: 'contain' }} />
+        <div className="grid-auto services-grid">
+          {content.services.map((service, index) => (
+            <article key={service.title} className="card service-panel">
+              <div className="service-panel__top">
+                <div className="service-panel__icon">
+                  <Image src={service.icon} alt="" width={36} height={36} style={{ width: 36, height: 36, objectFit: 'contain' }} />
+                </div>
+                <div className="service-panel__index">{String(index + 1).padStart(2, '0')}</div>
               </div>
-              <h3 style={{ fontSize: 22, margin: '18px 0 10px' }}>{service.title}</h3>
-              <p style={{ color: 'var(--muted)', lineHeight: 1.7 }}>{service.description}</p>
+              <h3 className="service-panel__title">{service.title}</h3>
+              <p className="service-panel__copy">{service.description}</p>
             </article>
           ))}
         </div>
@@ -243,7 +263,7 @@ export function StoryBlock({ lang }: { lang: Lang }) {
             alt={lang === 'es' ? 'Trayectoria y expansión de Aeroserv' : 'Aeroserv track record and growth'}
             width={982}
             height={620}
-            style={{ width: '100%', height: 'auto', borderRadius: 18 }}
+            className="media-frame__image media-frame__image--story"
           />
         </div>
         <div className="card section-block">
@@ -270,12 +290,12 @@ export function Facilities({ lang }: { lang: Lang }) {
   return (
     <section className="section">
       <div className="container section-two-col">
-        <div className="card section-block story-shell">
+        <div className="card section-block story-shell solutions-panel">
           <div className="eyebrow">{content.solutionsEyebrow}</div>
           <h2 className="section-title">{content.solutionsTitle}</h2>
           <div className="stack-md">
             {content.solutionsBullets.map((bullet) => (
-              <div key={bullet} className="surface-panel" style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
+              <div key={bullet} className="surface-panel solutions-panel__item" style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
                 <CheckCircle2 size={18} style={{ marginTop: 3, flex: '0 0 auto' }} />
                 <span style={{ color: 'var(--text)', lineHeight: 1.7 }}>{bullet}</span>
               </div>
@@ -295,7 +315,7 @@ export function Facilities({ lang }: { lang: Lang }) {
       </div>
 
       <div className="container card section-block story-shell" style={{ marginTop: 24 }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', gap: 20, flexWrap: 'wrap', marginBottom: 22 }}>
+        <div className="section-intro section-intro--facilities">
           <div>
             <div className="eyebrow">{content.facilitiesEyebrow}</div>
             <h2 className="section-title" style={{ marginBottom: 10 }}>{content.facilitiesTitle}</h2>
@@ -303,7 +323,7 @@ export function Facilities({ lang }: { lang: Lang }) {
           </div>
         </div>
         <div className="section-two-col" style={{ alignItems: 'stretch' }}>
-          <div className="card media-frame" style={{ background: 'var(--surface)' }}>
+          <div className="card media-frame facilities-media">
             <Image
               src="/home/home-facilities.jpg"
               alt={lang === 'es' ? 'Instalaciones de Aeroserv' : 'Aeroserv facilities'}
@@ -333,8 +353,8 @@ export function ClientStrip({ lang }: { lang: Lang }) {
     <section className="section" style={{ paddingTop: 16 }}>
       <div className="container">
         <div className="eyebrow">{content.clientsTitle}</div>
-        <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', margin: '12px 0 8px' }}>{content.clientsTitle}</h2>
-        <p style={{ color: 'var(--muted)', lineHeight: 1.75, marginBottom: 20 }}>{content.clientsText}</p>
+        <h2 className="section-title" style={{ marginBottom: 8 }}>{content.clientsTitle}</h2>
+        <p className="section-copy" style={{ marginBottom: 20 }}>{content.clientsText}</p>
         <div className="client-grid">
           {clients.map((client) => (
             <a key={client.name} href={client.href} target="_blank" rel="noopener noreferrer" className="client-card">
@@ -365,15 +385,15 @@ export function QualitySection({ lang }: { lang: Lang }) {
   return (
     <section className="section">
       <div className="container section-split quality-shell">
-        <div className="card section-block">
+        <div className="card section-block quality-main-panel">
           <div className="eyebrow">{content.qualityEyebrow}</div>
           <h2 className="section-title">{content.qualityTitle}</h2>
           <p className="section-copy">{content.qualityText}</p>
           <IsoModalGallery />
         </div>
 
-        <div className="card section-block">
-          <div className="grid-auto">
+        <div className="card section-block quality-list-panel">
+          <div className="grid-auto quality-list-grid">
             {[
               'EN9100 / ISO 9001',
               'I+D-P-146 Sellado de estructuras aeronáuticas',
@@ -382,7 +402,7 @@ export function QualitySection({ lang }: { lang: Lang }) {
               'I+D-P-393 Refrigeración y descongelado de sellantes',
               'CASA 1400 7.3 Coordinación interna de procesos',
             ].map((item) => (
-              <div key={item} className="surface-panel" style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+              <div key={item} className="surface-panel quality-list-item" style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
                 <ShieldCheck size={18} /> <span>{item}</span>
               </div>
             ))}
@@ -402,8 +422,8 @@ export function ContactCta({ lang }: { lang: Lang }) {
       <div className="container card contact-cta-card" style={{ padding: 30, display: 'grid', gridTemplateColumns: '1fr auto', gap: 18, alignItems: 'center' }}>
         <div>
           <div className="eyebrow">{content.contactTitle}</div>
-          <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.7rem)', margin: '12px 0 10px' }}>{content.contactTitle}</h2>
-          <p style={{ color: 'var(--muted)', lineHeight: 1.7 }}>{content.contactText}</p>
+          <h2 className="section-title" style={{ marginBottom: 10 }}>{content.contactTitle}</h2>
+          <p className="section-copy">{content.contactText}</p>
         </div>
         <Button href={`/${lang}/contacto`}>
           {t.nav.contact} <ArrowRight size={16} />
