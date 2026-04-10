@@ -10,8 +10,8 @@ type BrandLogoProps = {
 export function BrandLogo({ lang, priority = false }: BrandLogoProps) {
   return (
     <Link href={`/${lang}`} className="brand-link" aria-label="Aeroserv">
-      <Image src="/aeroservo-logo-light.png" alt="Aeroserv" width={168} height={56} priority={priority} className="theme-logo theme-logo--light" />
-      <Image src="/logo-aeroserv.png" alt="Aeroserv" width={168} height={56} priority={priority} className="theme-logo theme-logo--dark" />
+      <Image src="/Aeroserv_new_logo_color-removebg-preview.png" alt="Aeroserv" width={168} height={56} priority={priority} className="theme-logo theme-logo--light" />
+      <Image src="/Aeroserv_new_logo_BLANCO.png" alt="Aeroserv" width={168} height={56} priority={priority} className="theme-logo theme-logo--dark" />
     </Link>
   );
 }
