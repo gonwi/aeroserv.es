@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import { getDictionary, type Lang } from '@/lib/i18n';
 import { getPageMetadata } from '@/lib/seo';
 
@@ -33,37 +32,31 @@ export default async function ServicesPage({ params }: { params: Promise<{ lang:
             title: 'Servicios de logística',
             description: 'Soluciones a medida para nuestros clientes: embalajes, utillaje y transportes.',
             icon: '/services/service-logistica.png',
-            href: 'http://aeroserv.es/servicios-de-logistica/',
           },
           {
             title: 'Sistema FOD control',
             description: 'Experiencia exitosa de más de 10 años en la gestión integral de reparaciones de herramientas.',
             icon: '/services/service-fod.png',
-            href: 'http://aeroserv.es/sistema-fod-control/',
           },
           {
             title: 'Mantenimiento de herramientas',
             description: 'Experiencia contrastada en mantenimiento, reparación y control de herramientas en entornos con requerimientos FOD.',
             icon: '/services/service-tools.png',
-            href: 'http://aeroserv.es/servicio-de-mantenimiento-de-herramientas-2/',
           },
           {
             title: 'Soporte en industria aeronáutica',
             description: 'Amplia experiencia en soporte industrial en la aeronáutica, desde equipos de blue collars hasta gestión integral.',
             icon: '/services/service-aero.png',
-            href: 'http://aeroserv.es/servicios-soporte-aeronautica/',
           },
           {
             title: 'Soporte industrial',
             description: 'Soporte técnico y humano para distintos entornos industriales, incorporando soluciones útiles procedentes de otros sectores.',
             icon: '/services/service-industrial.png',
-            href: 'http://aeroserv.es/servicio-de-soporte-industrial/',
           },
           {
             title: 'Soporte I+D+I',
             description: 'Soporte integral para fabricación de prototipos.',
             icon: '/services/service-idi.png',
-            href: 'http://aeroserv.es/soporte-idi/',
           },
         ],
         closingTitle: 'Soporte industrial con enfoque de servicio',
@@ -90,37 +83,31 @@ export default async function ServicesPage({ params }: { params: Promise<{ lang:
             title: 'Logistics services',
             description: 'Tailored solutions for our customers, including packaging, tooling and transport.',
             icon: '/services/service-logistica.png',
-            href: 'http://aeroserv.es/servicios-de-logistica/',
           },
           {
             title: 'FOD control system',
             description: 'More than 10 years of successful experience in the integrated management of tool repairs.',
             icon: '/services/service-fod.png',
-            href: 'http://aeroserv.es/sistema-fod-control/',
           },
           {
             title: 'Tool maintenance',
             description: 'Proven experience in tool maintenance, repair and tooling control within FOD-sensitive environments.',
             icon: '/services/service-tools.png',
-            href: 'http://aeroserv.es/servicio-de-mantenimiento-de-herramientas-2/',
           },
           {
             title: 'Aeronautical industry support',
             description: 'Broad experience in aeronautical industrial support, from blue-collar teams to integrated management.',
             icon: '/services/service-aero.png',
-            href: 'http://aeroserv.es/servicios-soporte-aeronautica/',
           },
           {
             title: 'Industrial support',
             description: 'Technical and human support for a wide range of industrial environments, incorporating useful practices from other sectors.',
             icon: '/services/service-industrial.png',
-            href: 'http://aeroserv.es/servicio-de-soporte-industrial/',
           },
           {
             title: 'R&D&I support',
             description: 'Integrated support for prototype manufacturing.',
             icon: '/services/service-idi.png',
-            href: 'http://aeroserv.es/soporte-idi/',
           },
         ],
         closingTitle: 'Industrial support with a service mindset',
@@ -180,10 +167,7 @@ export default async function ServicesPage({ params }: { params: Promise<{ lang:
                   <Image src={service.icon} alt="" width={40} height={40} style={{ width: 40, height: 40, objectFit: 'contain' }} />
                 </div>
                 <h3 style={{ fontSize: 24, margin: '0 0 10px' }}>{service.title}</h3>
-                <p style={{ color: 'var(--muted)', lineHeight: 1.8, marginBottom: 20 }}>{service.description}</p>
-                <Link href={service.href} target="_blank" rel="noopener noreferrer" className="button-secondary" style={{ width: 'fit-content' }}>
-                  {lang === 'es' ? 'Ver referencia' : 'View reference'}
-                </Link>
+                <p style={{ color: 'var(--muted)', lineHeight: 1.8, marginBottom: 0 }}>{service.description}</p>
               </article>
             ))}
           </div>
